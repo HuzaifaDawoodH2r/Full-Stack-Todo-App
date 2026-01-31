@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: ./frontend
+    container_name: frontend-container
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    build: ./backend
+    container_name: backend-container
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: "postgresql+asyncpg://neondb_owner:npg_nv5KFlYS9EoD@ep-weathered-hat-ahm7gfnp-pooler.c-3.us-east-1.aws.neon.tech/neondb" 
+      GEMINI_API_KEY: "AIzaSyDfyULomisCUanHy4VFoqoLgXiLnsz6Ixg"
+    networks:
+      - app-network
+
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: neondb_owner
+      POSTGRES_PASSWORD: npg_Vi0MAbn1SrQe
+      POSTGRES_DB: neondb
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+networks:
+  app-network:
+
+volumes:
+  db-data:
