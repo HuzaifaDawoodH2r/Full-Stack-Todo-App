@@ -27,7 +27,7 @@ const Dashboard = () => {
   }
 
   if (!isAuthenticated) {
-    return null;
+    return null; 
   }
 
   return <DashboardContent />;

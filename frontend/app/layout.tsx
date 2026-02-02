@@ -5,6 +5,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import { AuthProvider } from '@/contexts/AuthContext';
 import '@/../styles/globals.css';
 
+
 export default function RootLayout({
   children,
 }: {
