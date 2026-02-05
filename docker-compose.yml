@@ -3,7 +3,7 @@ version: "3.9"
 services:
   frontend:
     build: ./frontend
-    container_name: frontend-container
+    container_name: frontend-huz-container
     ports:
       - "3000:3000"
     depends_on:
@@ -13,11 +13,11 @@ services:
 
   backend:
     build: ./backend
-    container_name: backend-container
+    container_name: backend-huz-container
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: "postgresql+asyncpg://neondb_owner:npg_nv5KFlYS9EoD@ep-weathered-hat-ahm7gfnp-pooler.c-3.us-east-1.aws.neon.tech/neondb" 
+      DATABASE_URL: "postgresql+asyncpg://neondb_owner:npg_nv5KFlYS9EoD@ep-weathered-hat-ahm7gfnp.c-3.us-east-1.aws.neon.tech/neondb" 
       GEMINI_API_KEY: "AIzaSyC7WDAL-la3lYO37adum7awXB_ZsxN3OXk"
     networks:
       - app-network
